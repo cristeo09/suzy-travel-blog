@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wander With Suzy</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet & MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-logo">wander with Suzy</a>
+        <div class="menu-toggle" id="mobile-menu" aria-label="Toggle menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>
+            <span class="line1">Wander</span>
+            <span class="line2">with Suzy</span>
+        </h1>
+        <p>Stories From Every Corner of the World.</p>
+        <a href="#map-section" class="hero-btn">Explore my map &rarr;</a>
+    </header>
+
+    <!-- Interactive Map Section -->
+    <section id="map-section" class="map-section">
+        <h2>Places I have Wandered</h2>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="All">All</button>
+            <button class="filter-btn" data-filter="Culture">Culture</button>
+            <button class="filter-btn" data-filter="Food">Food</button>
+            <button class="filter-btn" data-filter="Adventure">Adventure</button>
+        </div>
+        <div id="map"></div>
+    </section>
+
+    <!-- Latest Posts Section -->
+    <section class="blog-section">
+        <h2>Latest Journeys</h2>
+        <div class="blog-grid">
+            <!-- Post 1 -->
+            <a href="post-1.html" class="blog-card-link">
+                <article class="blog-card">
+                    <img src="https://picsum.photos/seed/post1/600/400" alt="Blog post thumbnail">
+                    <div class="blog-content">
+                        <span class="blog-date">OCTOBER 14, 2023</span>
+                        <h3>Tasting the Real Bangkok</h3>
+                        <p>A dive into the vibrant, chaotic, and incredibly delicious street food scene of Thailand's capital.</p>
+                        <span class="popup-link">Read Post &rarr;</span>
+                    </div>
+                </article>
+            </a>
+            <!-- Post 2 -->
+            <a href="post-2.html" class="blog-card-link">
+                <article class="blog-card">
+                    <img src="https://picsum.photos/seed/post2/600/400" alt="Blog post thumbnail">
+                    <div class="blog-content">
+                        <span class="blog-date">SEPTEMBER 28, 2023</span>
+                        <h3>Lost in the Souks of Marrakech</h3>
+                        <p>Navigating the labyrinth of colorful stalls, hand-woven rugs, and the sweet scent of mint tea.</p>
+                        <span class="popup-link">Read Post &rarr;</span>
+                    </div>
+                </article>
+            </a>
+            <!-- Post 3 -->
+            <a href="post-3.html" class="blog-card-link">
+                <article class="blog-card">
+                    <img src="https://picsum.photos/seed/post3/600/400" alt="Blog post thumbnail">
+                    <div class="blog-content">
+                        <span class="blog-date">AUGUST 05, 2023</span>
+                        <h3>The Magic of the Amalfi Coast</h3>
+                        <p>Sun-drenched days, impossibly blue waters, and endless plates of fresh seafood pasta.</p>
+                        <span class="popup-link">Read Post &rarr;</span>
+                    </div>
+                </article>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="social-icons">
+            <a href="#" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.872.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter/X">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+        </div>
+        <p>&copy; 2026 Wander With Suzy</p>
+        <a href="#" class="back-to-top">&uarr; Back to top</a>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script>
+        // Initialize map with a clean, light basemap suited for the color palette
+        const map = L.map('map').setView([25, 10], 2);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        }).addTo(map);
+
+        // Map Data
+        const locations = [
+            {
+                country: "Portugal, Lisbon",
+                coords: [38.7223, -9.1393],
+                desc: "Where it all began. Pastéis de nata and golden-hour sunsets.",
+                category: "Home Base",
+                img: "https://picsum.photos/seed/lisbon/300/200",
+                postUrl: "post-6.html"
+            },
+            {
+                country: "Japan, Tokyo",
+                coords: [35.6762, 139.6503],
+                desc: "Cherry blossoms and beautiful, controlled chaos.",
+                category: "Culture",
+                img: "https://picsum.photos/seed/tokyo/300/200",
+                postUrl: "post-4.html"
+            },
+            {
+                country: "Thailand, Bangkok",
+                coords: [13.7563, 100.5018],
+                desc: "Street food heaven. Every corner is a new flavor.",
+                category: "Food",
+                img: "https://picsum.photos/seed/bangkok/300/200",
+                postUrl: "post-1.html"
+            },
+            {
+                country: "Morocco, Marrakech",
+                coords: [31.6295, -7.9811],
+                desc: "The souks, the colors, the glorious madness.",
+                category: "Adventure",
+                img: "https://picsum.photos/seed/marrakech/300/200",
+                postUrl: "post-2.html"
+            },
+            {
+                country: "Italy, Amalfi Coast",
+                coords: [40.6340, 14.6027],
+                desc: "Lemon trees, cliffside drives, and the bluest water.",
+                category: "Culture",
+                img: "https://picsum.photos/seed/amalfi/300/200",
+                postUrl: "post-3.html"
+            },
+            {
+                country: "Vietnam, Hanoi",
+                coords: [21.0278, 105.8342],
+                desc: "Motorbikes, steaming pho, and old quarter magic.",
+                category: "Food",
+                img: "https://picsum.photos/seed/hanoi/300/200",
+                postUrl: "post-8.html"
+            },
+            {
+                country: "Greece, Santorini",
+                coords: [36.3932, 25.4615],
+                desc: "Blue domes and impossible sunsets.",
+                category: "Culture",
+                img: "https://picsum.photos/seed/santorini/300/200",
+                postUrl: "post-7.html"
+            },
+            {
+                country: "Indonesia, Bali",
+                coords: [-8.3405, 115.0920],
+                desc: "Rice terraces at dawn, temple incense, and surf.",
+                category: "Adventure",
+                img: "https://picsum.photos/seed/bali/300/200",
+                postUrl: "post-5.html"
+            }
+        ];
+
+        const markers = [];
+
+        // Initialize Marker Cluster Group
+        const markersGroup = L.markerClusterGroup({
+            iconCreateFunction: function(cluster) {
+                return L.divIcon({
+                    html: `<div><span>${cluster.getChildCount()}</span></div>`,
+                    className: 'custom-cluster-icon',
+                    iconSize: L.point(36, 36)
+                });
+            },
+            showCoverageOnHover: false
+        });
+
+        // Render Markers
+        locations.forEach((loc, index) => {
+            const customIcon = L.divIcon({
+                className: 'custom-pin',
+                html: `<div class="pin-inner" style="animation-delay: ${index * 100}ms"></div>`,
+                iconSize: [18, 18],
+                iconAnchor: [9, 9],
+                popupAnchor: [0, -10]
+            });
+
+            const marker = L.marker(loc.coords, { icon: customIcon });
+
+            const popupContent = `
+                <a href="${loc.postUrl}" target="_blank" class="popup-wrapper-link">
+                    <img src="${loc.img}" alt="${loc.country}" class="popup-img">
+                    <div class="popup-text">
+                        <h3>${loc.country}</h3>
+                        <p>${loc.desc}</p>
+                        <span class="popup-link">Read More &rarr;</span>
+                    </div>
+                </a>
+            `;
+
+            marker.bindPopup(popupContent);
+            marker.category = loc.category;
+            
+            marker.on('click', function(e) {
+                map.flyTo(loc.coords, 6, {
+                    animate: true,
+                    duration: 1.0
+                });
+            });
+
+            markers.push(marker);
+            markersGroup.addLayer(marker);
+        });
+
+        map.addLayer(markersGroup);
+
+        // Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Toggle active state on buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                // Add or remove markers from the map depending on category
+                markersGroup.clearLayers();
+                const filteredMarkers = markers.filter(marker => filterValue === 'All' || marker.category === filterValue);
+                markersGroup.addLayers(filteredMarkers);
+            });
+        });
+    </script>
+
+    <script>
+        // Mobile Menu Logic
+        document.addEventListener("DOMContentLoaded", () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navMenu = document.querySelector('.nav-links');
+            if (mobileMenu && navMenu) {
+                mobileMenu.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('is-active');
+                    navMenu.classList.toggle('active');
+                    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
